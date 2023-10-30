@@ -1,0 +1,16 @@
+header {
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px 2px;
+}
+
+a {
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    background-color: lightblue;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: lightcoral;
+}

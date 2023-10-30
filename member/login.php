@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
     <style>
-        .login-block{
-            padding:30px 40px;
-            border:1px solid #999;
-            box-shadow: 2px 2px 15px #999;
-            margin:10px auto;
-            width:280px;
+       
+       header{
+text-align: center;
+       }
+        body{
+            background-color: lightseagreen;
+        }
+        h1 {
+            text-align: center;
+        }
+        .login-block {
+            width: 400px;
+            height: 200px;
+            margin: auto;
+            box-shadow: 2px 2px 5px 2px black;
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 30px;
+        }
+        h1{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
         }
         .login-input {
             margin: 10px;
@@ -34,22 +54,29 @@
             margin:5px;
         }
     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class='login-block'>
+<?php
+include_once "header.php";
+?>
+    <h1>輸入帳號密碼</h1>
     <?php
     date_default_timezone_set("Asia/Taipei");
+ 
     if(isset($_COOKIE['error'])){
         echo "<span style='color:red'>".$_COOKIE['error']."</span>";
         unset($_COOKIE['error']);
     }
-    
     if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])){
-        echo $_COOKIE['login']." 歡迎你";
+        echo $_COOKIE['login']."<h3>歡迎你</h3> ";
         echo "<a href='logout.php'>登出</a>";
     }else{
-?>
-<form action="check.php" method="post">
+    ?>
+    <div class="login-block">
+   
+        <form action="check.php" method="post">
         <div class='login-input'>
             <label for="acc">帳號:</label>
             <input type="text" name="acc" id="acc">
@@ -62,12 +89,13 @@
             <input type="submit" value="登入">
             <input type="reset" value="重置">
         </div>
-    </form>
-<?php
+        </form>
+    </div>
+    <?php
     }
 
     ?>
     
-</div>    
 </body>
+
 </html>
