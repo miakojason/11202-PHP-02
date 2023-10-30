@@ -1,3 +1,6 @@
+<?php
+ include_once "session.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +66,7 @@ include_once "header.php";
 ?>
     <h1>輸入帳號密碼</h1>
     <?php
- session_start();
+//  session_start();
 // if(isset($_SESSION['login']) && !empty($_SESSION['login'])){
     include_once "header.php";
 // }

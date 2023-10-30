@@ -1,3 +1,23 @@
+<?php
+
+$monthImages = [
+    1 => '01.jpg',   // 請替換為實際的圖片文件名
+    2 => '02.jpg', // 請替換為實際的圖片文件名
+    3 => '03.jpg',    // 請替換為實際的圖片文件名
+    4 => '03.jpg', 
+    5 => '03.jpg', 
+    6 => '03.jpg', 
+    7 => '03.jpg', 
+    8 => '03.jpg', 
+    9 => '03.jpg', 
+    10 => '03.jpg', 
+    11 => '03.jpg', 
+    12 => '03.jpg', 
+];
+
+$image_path = $monthImages[$month] ?? 'default.jpg'; // 默認圖片
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +27,8 @@
     <style>
         body{
             background-color: lightblue;
+            background-image: url('<?= $image_path ?>');
+            background-size: cover;  
         }
         h3{
             text-align: center;

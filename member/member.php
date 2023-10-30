@@ -1,3 +1,6 @@
+<?php 
+include_once "session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +28,9 @@ text-align: center;
 include_once "header.php";
 ?>
     <?php
+    include_once "header.php";
    //  date_default_timezone_set("Asia/Taipei");
-    session_start();
+   //  session_start();
     if(isset($_SESSION['login']) && !empty($_SESSION['login'])){
    // if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])){
        echo"<h3>主人登入成功</h3>";
