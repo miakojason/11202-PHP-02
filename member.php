@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員中心</title>
+    <style>
+      body{
+         background-color: lightblue;
+      }
+      *{
+         text-align: center;
+      }
+    </style>
 </head>
+
 <body>
-   <?php
-   if($_GET['login']==1){
+    <?php
+    date_default_timezone_set("Asia/Taipei");
+    session_start();
+   if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])){
        echo"<h3>主人登入成功</h3>";
-       echo "<a href='login.php?login=1'>回登入頁</a>";
+       echo "<a href='login.php'>回登入頁</a>";
+       echo "<br>";
+       echo "<a href='logout.php'>登出</a>";
     }else{
+      setcookie("error","<h3>「非法登入」，「小子你哪庄的」，「年輕人不講武德」，「耗子尾汁」，「你朝巴白吊打」</h3>",time()+5);
        header("location:login.php");
-   //  echo"<h3>非法登入，盜賊請退避，天靈靈地零零</h3>";
+   //  echo"<h3>非法登入，盜賊請退避，天靈靈地靈靈</h3>";
 }
-   
-   
+
    ?>
 </body>
+
 </html>
