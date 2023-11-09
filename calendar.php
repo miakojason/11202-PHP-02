@@ -1,23 +1,3 @@
-<?php
-
-$monthImages = [
-    1 => '01.jpg',   // 請替換為實際的圖片文件名
-    2 => '02.jpg', // 請替換為實際的圖片文件名
-    3 => '03.jpg',    // 請替換為實際的圖片文件名
-    4 => '03.jpg', 
-    5 => '03.jpg', 
-    6 => '03.jpg', 
-    7 => '03.jpg', 
-    8 => '03.jpg', 
-    9 => '03.jpg', 
-    10 => '03.jpg', 
-    11 => '03.jpg', 
-    12 => '03.jpg', 
-];
-
-$image_path = $monthImages[$month] ?? 'default.jpg'; // 默認圖片
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +7,6 @@ $image_path = $monthImages[$month] ?? 'default.jpg'; // 默認圖片
     <style>
         body{
             background-color: lightblue;
-            background-image: url('<?= $image_path ?>');
-            background-size: cover;  
         }
         h3{
             text-align: center;
@@ -41,7 +19,7 @@ font-size: 30px;
             border: 1px solid lightslategray;
             border-radius: 20px;
             margin-bottom: 20px;
-            
+
         }
         a:hover{
             background-color: lightsalmon;
@@ -73,7 +51,6 @@ font-size: 30px;
 </head>
 <body>
 <?php 
-
 if(isset($_GET['month']) && isset($_GET['year'])){
     $month=$_GET['month'];
     $year=$_GET['year'];
@@ -102,14 +79,12 @@ if(($month+1)>12){
 }else{
     $next=$month+1;
 }
-
 if(($month-1)<1){
     $prev=12;
     $prevYear=$year-1;
 }else{
     $prev=$month-1;
 }
-
 ?>
     <a href="?year=<?=$prevYear;?>&month=<?=$prev;?>">上一個月</a>
     <a href="?year=<?=$nextYear;?>&month=<?=$next;?>">下一個月</a>
@@ -143,10 +118,7 @@ for($i=0;$i<$weeks;$i++){
     }
     echo "</tr>";
 }
-
 echo "</table>";
 ?>    
-
-
 </body>
 </html>
