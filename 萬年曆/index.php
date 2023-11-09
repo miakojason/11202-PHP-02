@@ -85,6 +85,7 @@
         
     </style>
     </head>
+    <body onload="ShowTime()">
     <!-- 時間動態 -->
     <script language="JavaScript">
             function ShowTime(){
@@ -96,10 +97,8 @@
             setTimeout('ShowTime()',1000);
             }
             </script>
-    <body onload="ShowTime()">
     <h1 class="h1-1">萬年曆</h1>  
         <?php
-
         if (isset($_GET['month']) && isset($_GET['year'])) {
             $month = $_GET['month'];
             $year = $_GET['year'];
@@ -174,9 +173,10 @@
                 for ($j = 0; $j < 7; $j++) {
                     $addDays = 7 * $i + $j;
                     $thisCellDate = strtotime("+$addDays days", strtotime($firstCell));
-                     // 檢查是否為今天的日期
                     if (date("Y-m-d", $thisCellDate) == date("Y-m-d")) {
-                        echo "<td style='background-color: blue; color: white;'>";}
+                         // 檢查是否為今天的日期
+                        echo "<td style='background-color: blue; color: white;'>";
+                    }
                     elseif (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
                         echo "<td style='color:red'>";
                     } else {
